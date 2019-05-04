@@ -20,16 +20,16 @@
 html {
     font-size: 1em;
     line-height: 1.5;
-    height: 100%;
     background-color: black;
+    min-height: 100vh;
 }
 
 body {
-    height: 100%;
     color: var(--body_text);
     background: var(--body_base);
     font-family: 'Rajdhani', sans-serif;
     font-size: 17px;
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -118,9 +118,12 @@ body {
 .result {
     border: 1px solid #999999;
     border-radius: 4px;
-    font-size: 150%;
-    font-family: 'Rajdhani', sans-serif;
-    text-transform: uppercase;
+    font-size: 16px;
+    padding: 6px 16px;
+}
+
+.result:focus, .submit:focus, .next:focus {
+    outline-color: #999999;
 }
 
 .submit, .next {
@@ -134,6 +137,11 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.feedback {
+    margin-top: 30px;
+    font-size: 125%;
 }
 
 .next {
@@ -150,6 +158,19 @@ body {
     padding-top: 10px;
 }
 
+@media (max-width: 1440px) {
+    .wrapper {
+        display: grid;
+        grid-template-areas:
+                "vacant header navbar navbar"
+                "left_ads sidebar content right_ads"
+                "footer footer footer footer";
+        grid-template-columns: 1fr 300px 5fr 1fr;
+        grid-template-rows: 80px 1fr 40px;
+        grid-gap: 10px;
+    }
+}
+
 @media (max-width: 1200px) {
     .wrapper {
         display: grid;
@@ -159,7 +180,6 @@ body {
                 "footer footer footer";
         grid-template-columns: 300px 1fr 150px;
         grid-template-rows: auto 1fr 40px;
-        height: 100vh;
         grid-gap: 10px;
     }
 }
@@ -173,7 +193,6 @@ body {
                 "footer footer";
         grid-template-columns: 300px 1fr;
         grid-template-rows: auto 1fr 40px;
-        height: 100vh;
         grid-gap: 10px;
     }
     .content {
@@ -183,6 +202,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    html {
+        background-color: white;
+    }
     .wrapper {
         grid-template-areas:
             "header"
