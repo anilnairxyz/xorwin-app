@@ -1,0 +1,122 @@
+:root {
+    --body_text:        HSL(225, 6%, 21%);          /* body text color - dark grey */
+    --link_text:        rgba(255, 255, 255, 0.9);   /* header link text color */
+    --hover_link:       rgba(255, 255, 255, 0.9);   /* hover over links */
+    --header_base:      #00334E;                    /* header background color */
+    --footer_base:      #00334E;                    /* footer background color */
+    --footer_text:      white;
+    --sidebar_base:     rgba(0, 0, 0, 0);
+    --content_base:     rgba(0, 0, 0, 0);
+    --body_base:        rgba(85, 136, 163, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.5;
+    height: 100%;
+}
+
+body {
+    color: var(--body_text);
+    background: var(--body_base);
+    font-family: 'Arimo', sans-serif;
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+}
+
+@supports(display: grid) {
+    .notice {
+        display: none;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.text-center, .footer, .content, .header {
+    text-align: center;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr 40px;
+    height: 100vh;
+    grid-gap: 10px;
+}
+
+.header {
+    grid-area: header;
+    font-family: 'Arimo', sans-serif;
+    font-size: large;
+    background: var(--header_base);
+    padding: 0 1rem;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 30px;
+    color: var(--link_text);
+    margin-left: 20px;
+}
+
+.side_items {
+    list-style-type: none;
+}
+
+.items {
+    text-decoration: none;
+    color: var(--body_text);
+    margin-left: 10px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    width: 100%;
+    margin-left: 0.5rem;
+    padding-left: 30px;
+    background: var(--sidebar_base);
+}
+
+.content {
+    grid-area: content;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background: var(--content_base);
+}
+
+.footer {
+    background: var(--footer_base);
+    opacity: var(--footer_opacity);
+    grid-area: footer;
+    color: var(--footer_text);
+    font-size: 0.8rem;
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr 40px;
+    }
+    .content {
+        margin: 0;
+    }
+}

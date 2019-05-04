@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Meta Tags-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Title-->
+        <title>{{ title }}</title>
+        <meta name="description" content="11+ Practise Questions">
+
+        <!--Styles-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: [ 'Arimo', 'Anton', 'Fjalla+One' ] }
+            };
+            (function() {
+                var wf = document.createElement('script');
+                wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        </script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+    <body>
+        <div class="notice">
+            Your browser doesn't support CSS Grid Layout. Unfortunately, you won't be able to view this website.
+        </div>
+        <div class="wrapper">
+            <div class="header">
+                <a class="logo" href="/index">11+ Preparation</a>
+            </div>
+            <div class="sidebar">
+                {% for domain in domains %}
+                    <h2>{{ domain }}</h2>
+                    <ul class="side_items">
+                        {% for topic in domains[domain] %}
+                            <li><a class="items" href="{{ domains[domain][topic] }}">{{ topic }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="footer">
+                <p>© 2019 anradis</p>
+            </div>
+        </div> <!-- id="container" -->
+    </body>
+</html>
+

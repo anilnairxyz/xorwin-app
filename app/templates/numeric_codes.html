@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h1>Numeric Codes</h1>
+    </div>
+    <div>
+        <p>Three of the four words below have been coded. Each alphabet has been replaced by a number (0-9).</p>
+        <h2>
+            {% for word in words %}
+            {{ word }}&nbsp;&nbsp;
+            {% endfor %}
+        </h2>
+        <p>The codes are not written in the same order as the words.</p>
+        <h2>
+            {% for code in codes %}
+                {{ code }}&nbsp;&nbsp;
+            {% endfor %}
+        </h2>
+        <p>What is the code for: <h2>{{ query }}</h2></p>
+        <form action="" id="result_form">
+            <input id="result" type="text" name="result">
+            <button type="submit">Submit</button>
+        </form>
+        <span id="feedback"></span>
+        <script>
+            $( "#result_form" ).submit(function( event ) {
+                let answer = $( "#result" ).val();
+                if (answer == {{ result }} ) {
+                    $( "#feedback" ).text( "Correct Answer" ).show();
+                } else if (isNaN(answer)) {
+                    $("#feedback").text("Please enter valid numeric answer").show();
+                } else {
+                    $("#feedback").text("Wrong Answer").show();
+                }
+                event.preventDefault();
+            });
+        </script>
+        <form action="" id="next_problem">
+            <button type="submit">Next</button>
+        </form>
+    </div>
+{% endblock %}
