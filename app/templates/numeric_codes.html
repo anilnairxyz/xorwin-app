@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div>
-        <h1>Numeric Codes</h1>
+    <div class="breadcrumb">
+        <h3>Non-Verbal Reasoning • Numeric Codes</h3>
     </div>
-    <div>
+    <div class="question">
         <p>Three of the four words below have been coded. Each alphabet has been replaced by a number (0-9).</p>
-        <h2>
+        <span class="raise">
             {% for word in words %}
             {{ word }}&nbsp;&nbsp;
             {% endfor %}
-        </h2>
+        </span>
         <p>The codes are not written in the same order as the words.</p>
-        <h2>
+        <span class="raise">
             {% for code in codes %}
                 {{ code }}&nbsp;&nbsp;
             {% endfor %}
-        </h2>
-        <p>What is the code for: <h2>{{ query }}</h2></p>
+        </span>
+        <p>What is the code for &nbsp; <span class="raise">{{ query }}</span></p>
         <form action="" id="result_form">
-            <input id="result" type="text" name="result">
-            <button type="submit">Submit</button>
+            <input id="result" type="text" name="result" class="result">
+            <button class="submit" type="submit">Submit</button>
         </form>
         <span id="feedback"></span>
         <script>
@@ -37,7 +37,7 @@
             });
         </script>
         <form action="" id="next_problem">
-            <button type="submit">Next</button>
+            <button class="next" type="submit">Next</button>
         </form>
     </div>
 {% endblock %}

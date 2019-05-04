@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <script type="text/javascript">
             WebFontConfig = {
-                google: { families: [ 'Arimo', 'Anton', 'Fjalla+One' ] }
+                google: { families: [ 'Rajdhani', 'Anton', 'Fjalla+One' ] }
             };
             (function() {
                 var wf = document.createElement('script');
@@ -27,7 +27,8 @@
         </script>
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     </head>
-    <body>
+    <body style="background:url({{ url_for('static', filename='images/background.png')}}) repeat;
+            background-attachment:fixed; margin-top:5px;">
         <div class="notice">
             Your browser doesn't support CSS Grid Layout. Unfortunately, you won't be able to view this website.
         </div>
