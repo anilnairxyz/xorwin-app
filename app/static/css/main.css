@@ -54,7 +54,7 @@ body {
         "vacant header navbar navbar"
         "left_ads sidebar content right_ads"
         "footer footer footer footer";
-    grid-template-columns: 150px 300px 1fr 150px;
+    grid-template-columns: 1fr 300px 800px 1fr;
     grid-template-rows: 80px 1fr 40px;
     height: 100vh;
     grid-gap: 10px;
@@ -130,6 +130,7 @@ body {
     background-color: #999999;
     border-radius: 4px;
     border: none;
+    cursor: pointer;
     text-transform: uppercase;
     color: white;
     padding: 8px 32px;
@@ -165,7 +166,7 @@ body {
                 "vacant header navbar navbar"
                 "left_ads sidebar content right_ads"
                 "footer footer footer footer";
-        grid-template-columns: 1fr 300px 5fr 1fr;
+        grid-template-columns: 150px 300px 1fr 150px;
         grid-template-rows: 80px 1fr 40px;
         grid-gap: 10px;
     }
