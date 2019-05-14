@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="breadcrumb">
+        <h3>{{ breadcrumb['h1'] }} • {{ breadcrumb['h2'] }}</h3>
+    </div>
+    <div class="question">
+        {% block question %}
+        {% endblock %}
+        <form action="" id="result_form">
+            <input id="result" type="text" name="result" class="result">
+            <button class="submit" type="submit">Submit</button>
+        </form>
+        <span class="feedback" id="feedback"></span>
+        <script>
+            $( "#result_form" ).submit(function( event ) {
+                let answer = $( "#result" ).val();
+                if (answer == {{ result }} ) {
+                    $( "#feedback" ).text( "Correct Answer" ).show();
+                } else if (isNaN(answer)) {
+                    $("#feedback").text("Please enter valid numeric answer").show();
+                } else {
+                    $("#feedback").text("Wrong Answer").show();
+                }
+                event.preventDefault();
+            });
+        </script>
+        <form action="" id="next_problem">
+            <button class="next" type="submit">Next</button>
+        </form>
+    </div>
+{% endblock %}

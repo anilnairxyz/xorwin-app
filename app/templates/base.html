@@ -28,7 +28,7 @@
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     </head>
     <body style="background:url({{ url_for('static', filename='images/background.png')}}) repeat;
-            background-attachment:fixed; margin-top:5px;">
+            background-attachment:fixed;">
         <div class="notice">
             Your browser doesn't support CSS Grid Layout. Unfortunately, you won't be able to view this website.
         </div>
@@ -39,11 +39,16 @@
             <div class="sidebar">
                 {% for domain in domains %}
                     <h2>{{ domain }}</h2>
-                    <ul class="side_items">
-                        {% for topic in domains[domain] %}
-                            <li><a class="items" href="{{ domains[domain][topic] }}">{{ topic }}</a></li>
-                        {% endfor %}
-                    </ul>
+                    <div class="sub_items">
+                    {% for field in domains[domain] %}
+                        <h3>{{ field }}</h3>
+                        <div class="side_items">
+                            {% for topic in domains[domain][field] %}
+                                <li><a class="items" href="{{ domains[domain][field][topic] }}">{{ topic }}</a></li>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    </div>
                 {% endfor %}
             </div>
             <div class="content">
